@@ -1,5 +1,5 @@
 # F1-BI-Dashboards
-This repository contains three Streamlit-based dashboards demonstrating how Business Intelligence (BI) concepts can be applied to Formula 1 operations, from telemetry and component management to shipment logistics.
+This repository contains three Streamlit-based dashboards demonstrating how Business Informatics (BI) concepts can be applied to Formula 1 operations, from telemetry and component management to shipment logistics.
 
 ---
 
