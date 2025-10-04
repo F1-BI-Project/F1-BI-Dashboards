@@ -19,7 +19,7 @@ Visualizes transport delays, costs, and logistics performance to support supply 
 
 ---
 
-## 📁 Datasets
+## Datasets
 The following sample data are included in `/Data_samples`:
 - `telemetry_30laps.txt`
 - `components_example_data.txt`
