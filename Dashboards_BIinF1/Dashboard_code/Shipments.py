@@ -1,3 +1,6 @@
+# Before running this code, make sure that this python file is in the same folder as the 'shipments_example_data.txt' file.
+# Also make sure you have the required python extensions installed: 'pandas', 'streamlit', 'matplotlib', 'numpy', and 'altair'
+
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -164,4 +167,5 @@ st.warning(
 st.success(
     f"✅ Recommended: **{best_carrier['carrier']}** "
     f"(avg delay {best_carrier['avg_delay']:.1f} hrs, {best_carrier['count']} shipments)."
+
 )
