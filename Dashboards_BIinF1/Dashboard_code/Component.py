@@ -1,3 +1,6 @@
+# Before running this code, make sure that this python file is in the same folder as the 'components_example_data.txt' file.
+# Also make sure you have the required python extensions installed: 'pandas', 'streamlit', 'matplotlib', 'numpy', and 'plotly'
+
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -152,4 +155,5 @@ st.metric(label=f"{df.loc[highest_risk_idx, 'component_id']} ({df.loc[highest_ri
 
 # Bar chart comparison
 st.markdown("#### Replace Now vs Replace Later Cost")
+
 st.bar_chart(df.set_index("component_id")[["Replace_Now_Cost", "Replace_Later_Cost"]])
