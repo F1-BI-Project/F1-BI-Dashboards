@@ -6,7 +6,7 @@ This repository contains three Streamlit-based dashboards demonstrating how Busi
 ## Dashboards
 
 ### 1️. Telemetry Dashboard
-Analyzes lap times, fuel usage, and performance indicators to support real-time race decisions.  
+Analyzes telemetry data to support real-time race decisions.  
 📂 File: `Dashboard_code/Telemetry.py`
 
 ### 2️. Component Reliability Dashboard
