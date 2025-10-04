@@ -1,5 +1,5 @@
 # Before running this code, make sure that this python file is in the same folder as the 'shipments_example_data.txt' file.
-# Also make sure you have the required python extensions installed: 'pandas', 'streamlit', 'matplotlib', 'numpy', and 'altair'
+# Also make sure you have the required python extensions installed: 'pandas', 'streamlit', 'matplotlib', 'numpy', and 'plotly'
 
 import pandas as pd
 import streamlit as st
@@ -169,3 +169,4 @@ st.success(
     f"(avg delay {best_carrier['avg_delay']:.1f} hrs, {best_carrier['count']} shipments)."
 
 )
+
