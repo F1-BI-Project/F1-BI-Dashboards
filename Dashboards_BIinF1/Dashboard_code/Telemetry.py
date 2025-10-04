@@ -1,3 +1,6 @@
+# Before running this code, make sure that this python file is in the same folder as the 'telemetry_30laps.txt' file.
+# Also make sure you have the required python extensions installed: 'pandas', 'streamlit', 'matplotlib', 'numpy', and 'altair'
+
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -222,4 +225,5 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
