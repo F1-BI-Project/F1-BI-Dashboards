@@ -10,7 +10,7 @@ import io
 import requests
 
 
-# Try to open the telemetry file
+#### to run the code on your computer comment out the lines 14 to 27 ####
 try:
     url = "https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt"
     response = requests.get(url)
@@ -26,17 +26,13 @@ except Exception as e:
     else:
         st.stop()
 
-#fl = open("https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt", encoding='utf-16') #To run the code on your computer comment this line out
-# and uncomment the line below 
+#### To run the code on your computer comment out the lines 14 to 27 ####
+#### and uncomment the line below ####
 #fl = open("telemetry_30laps.txt", 'r', encoding= 'utf-16') #uncomment this line
 header_line = fl.readline()
-#print(header_line)
-#quit()
 columns = header_line.split()
-#print(columns)
 data = dict()
 data_per_lap = dict()
-#quit()
 
 lap_number = list()
 timestamp = list()
@@ -246,6 +242,7 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
 
 
