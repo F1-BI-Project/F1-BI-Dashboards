@@ -7,7 +7,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
 
-fl = open("components_example_data.txt", 'r', encoding= 'utf-16')
+#### to run the code on your computer comment out the lines 10 to 24 ####
+try:
+    url = "https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/components_example_data.txt"
+    response = requests.get(url)
+    response.raise_for_status()
+
+    fl = io.StringIO(response.content.decode('utf-16'))
+
+except Exception as e:
+    st.warning("Unable to fetch data from GitHub. Please upload the telemetry file manually.")
+    uploaded = st.file_uploader("Upload components_example_data", type=["txt"])
+    if uploaded is not None:
+        fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
+    else:
+        st.stop()
+#### To run the code on your computer comment out the lines 10 to 24 ####
+#### and uncomment the line below ####
+#fl = open("components_example_data.txt", 'r', encoding= 'utf-16')
 header_line = fl.readline()
 columns = header_line.strip().split(",")
 data = dict()
@@ -157,3 +174,4 @@ st.metric(label=f"{df.loc[highest_risk_idx, 'component_id']} ({df.loc[highest_ri
 st.markdown("#### Replace Now vs Replace Later Cost")
 
 st.bar_chart(df.set_index("component_id")[["Replace_Now_Cost", "Replace_Later_Cost"]])
+
