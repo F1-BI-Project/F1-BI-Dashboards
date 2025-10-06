@@ -29,7 +29,7 @@ except Exception as e:
 #### To run the code on your computer comment out the lines 14 to 28 ####
 
 #### and uncomment the line below ####
-fl = open("shipments_example_data.txt", 'r', encoding= 'utf-16')
+#fl = open("shipments_example_data.txt", 'r', encoding= 'utf-16')
 header_line = fl.readline()
 columns = header_line.strip().split(",")
 data = dict()
@@ -189,5 +189,6 @@ st.success(
     f"(avg delay {best_carrier['avg_delay']:.1f} hrs, {best_carrier['count']} shipments)."
 
 )
+
 
 
