@@ -7,7 +7,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
 
-fl = open("telemetry_30laps.txt", 'r', encoding= 'utf-16')
+
+df = pd.read_csv("https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt", encoding='utf-16') #To run the code on your computer comment this line out
+# and uncomment the line below 
+#fl = open("telemetry_30laps.txt", 'r', encoding= 'utf-16') #uncomment this line
 header_line = fl.readline()
 #print(header_line)
 #quit()
@@ -225,5 +228,6 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
 
