@@ -97,7 +97,7 @@ st.pyplot(fig)
 
 st.subheader("Failure Probability by Component")
 df_sorted = df.sort_values("proj_fail_prob_next_race", ascending=False)
-st.bar_chart(df_sorted.set_index("component_id")["proj_fail_prob_next_race"].astype(float))
+st.bar_chart(df_sorted.set_index("component_type")["proj_fail_prob_next_race"].astype(float))
 
 st.subheader("Reliability Score (Percentage) per Component")
 # Pull reliability scores and component names from your dataframe
@@ -176,5 +176,6 @@ st.metric(label=f"{df.loc[highest_risk_idx, 'component_id']} ({df.loc[highest_ri
 st.markdown("#### Replace Now vs Replace Later Cost")
 
 st.bar_chart(df.set_index("component_id")[["Replace_Now_Cost", "Replace_Later_Cost"]])
+
 
 
