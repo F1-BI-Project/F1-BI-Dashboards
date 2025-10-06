@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
 import io
-import request
+import requests
 
 
 # Try to open the telemetry file
@@ -246,6 +246,7 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
 
 
