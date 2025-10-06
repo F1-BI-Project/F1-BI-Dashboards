@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 import io
 import requests
 
-#### to run the code on your computer comment out the lines 10 to 24 ####
+#### to run the code on your computer comment out the lines 13 to 24 ####
 try:
     url = "https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/components_example_data.txt"
     response = requests.get(url)
@@ -24,7 +24,7 @@ except Exception as e:
         fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
     else:
         st.stop()
-#### To run the code on your computer comment out the lines 10 to 24 ####
+#### To run the code on your computer comment out the lines 10 to 26 ####
 #### and uncomment the line below ####
 #fl = open("components_example_data.txt", 'r', encoding= 'utf-16')
 header_line = fl.readline()
@@ -176,6 +176,7 @@ st.metric(label=f"{df.loc[highest_risk_idx, 'component_id']} ({df.loc[highest_ri
 st.markdown("#### Replace Now vs Replace Later Cost")
 
 st.bar_chart(df.set_index("component_id")[["Replace_Now_Cost", "Replace_Later_Cost"]])
+
 
 
 
