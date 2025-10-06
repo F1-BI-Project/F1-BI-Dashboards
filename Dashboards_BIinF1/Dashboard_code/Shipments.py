@@ -152,7 +152,7 @@ col3.metric("Best Carrier", most_reliable)
 
 #Risk alerts
 st.subheader("Shipments at Risk")
-risk_threshold = st.slider("Select delay threshold (hrs):", 6, 48, 24)
+risk_threshold = st.slider("Select delay threshold (hrs):", 0, 36, 6)
 at_risk = df[df["delay_hours"] > risk_threshold]
 
 if not at_risk.empty:
@@ -188,6 +188,7 @@ st.success(
     f"(avg delay {best_carrier['avg_delay']:.1f} hrs, {best_carrier['count']} shipments)."
 
 )
+
 
 
 
