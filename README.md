@@ -7,6 +7,7 @@ This repository contains three Streamlit-based dashboards demonstrating how Busi
 The full report detailing the Business Informatics analysis, methodology, dashboards, and insights is available here:
 
 BI_in_F1_Final_Report.pdf
+
 A french version can be found under: BI_in_F1_Rapport_Final_FR.pdf
 
 This report explains how the dashboards were designed, includes sample data, interactive analysis, and demonstrates how BI transforms raw data into actionable decisions in F1.
