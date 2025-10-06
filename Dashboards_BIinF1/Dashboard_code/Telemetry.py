@@ -6,9 +6,27 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
+import io
+import request
 
 
-fl = open("https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt", encoding='utf-16') #To run the code on your computer comment this line out
+# Try to open the telemetry file
+try:
+    url = "https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt"
+    response = requests.get(url)
+    response.raise_for_status()
+
+    fl = io.StringIO(response.content.decode('utf-16'))
+
+except Exception as e:
+    st.warning("Unable to fetch data from GitHub. Please upload the telemetry file manually.")
+    uploaded = st.file_uploader("Upload telemetry_30laps.txt", type=["txt"])
+    if uploaded is not None:
+        fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
+    else:
+        st.stop()
+
+#fl = open("https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/telemetry_30laps.txt", encoding='utf-16') #To run the code on your computer comment this line out
 # and uncomment the line below 
 #fl = open("telemetry_30laps.txt", 'r', encoding= 'utf-16') #uncomment this line
 header_line = fl.readline()
@@ -228,6 +246,7 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
 
 
