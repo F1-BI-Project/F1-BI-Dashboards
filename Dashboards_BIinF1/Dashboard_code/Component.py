@@ -6,6 +6,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
+import io
+import requests
 
 #### to run the code on your computer comment out the lines 10 to 24 ####
 try:
@@ -17,7 +19,7 @@ try:
 
 except Exception as e:
     st.warning("Unable to fetch data from GitHub. Please upload the telemetry file manually.")
-    uploaded = st.file_uploader("Upload components_example_data", type=["txt"])
+    uploaded = st.file_uploader("Upload components_example_data.txt", type=["txt"])
     if uploaded is not None:
         fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
     else:
@@ -174,4 +176,5 @@ st.metric(label=f"{df.loc[highest_risk_idx, 'component_id']} ({df.loc[highest_ri
 st.markdown("#### Replace Now vs Replace Later Cost")
 
 st.bar_chart(df.set_index("component_id")[["Replace_Now_Cost", "Replace_Later_Cost"]])
+
 
