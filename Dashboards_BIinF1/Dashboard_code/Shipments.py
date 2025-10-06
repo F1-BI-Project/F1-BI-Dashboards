@@ -7,8 +7,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
+import io
+import requests
 
 
+#### to run the code on your computer comment out the lines 15 to 28 ####
+try:
+    url = "https://raw.githubusercontent.com/F1-BI-Project/F1-BI-Dashboards/main/Dashboards_BIinF1/Data_samples/shipments_example_data.txt"
+    response = requests.get(url)
+    response.raise_for_status()
+
+    fl = io.StringIO(response.content.decode('utf-16'))
+
+except Exception as e:
+    st.warning("Unable to fetch data from GitHub. Please upload the telemetry file manually.")
+    uploaded = st.file_uploader("Upload shipments_example_data.txt", type=["txt"])
+    if uploaded is not None:
+        fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
+    else:
+        st.stop()
+#### To run the code on your computer comment out the lines 14 to 28 ####
+
+#### and uncomment the line below ####
 fl = open("shipments_example_data.txt", 'r', encoding= 'utf-16')
 header_line = fl.readline()
 columns = header_line.strip().split(",")
@@ -169,4 +189,5 @@ st.success(
     f"(avg delay {best_carrier['avg_delay']:.1f} hrs, {best_carrier['count']} shipments)."
 
 )
+
 
