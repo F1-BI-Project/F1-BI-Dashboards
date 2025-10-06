@@ -25,8 +25,8 @@ except Exception as e:
         fl = io.StringIO(uploaded.getvalue().decode('utf-16'))
     else:
         st.stop()
-
 #### To run the code on your computer comment out the lines 14 to 27 ####
+
 #### and uncomment the line below ####
 #fl = open("telemetry_30laps.txt", 'r', encoding= 'utf-16') #uncomment this line
 header_line = fl.readline()
@@ -242,6 +242,7 @@ elif lap_delta > 0.2:
     st.warning("⏳ Consider pitting soon -> lap times are degrading.")
 else:
     st.success("✅ Stay Out -> Pace is stable and tire temps are under control.")
+
 
 
 
